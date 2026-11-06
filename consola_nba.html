@@ -6,16 +6,16 @@
 <title>CLARO NEXUS · Consola de configuración</title>
 <style>
 :root{
-  --bg:#0a0d13;
-  --bg-soft:#0f131b;
-  --panel:#141a24;
-  --panel-2:#18202c;
-  --border:#242e3d;
-  --border-strong:#324054;
-  --text:#e9eef6;
-  --muted:#8b98ab;
-  --muted-2:#637086;
-  --red:#e32b2b;
+  --bg:#f0f0f0;
+  --bg-soft:#fafafa;
+  --panel:#ffffff;
+  --panel-2:#f7f7f7;
+  --border:#dedede;
+  --border-strong:#c9c9c9;
+  --text:#161616;
+  --muted:#626262;
+  --muted-2:#858585;
+  --red:#ee2a26;
   --red-soft:rgba(227,43,43,.14);
   --red-glow:rgba(227,43,43,.35);
   --green:#22c55e;
@@ -33,8 +33,7 @@
 html,body{margin:0;padding:0}
 body{
   background:
-    radial-gradient(900px 420px at 12% -8%, rgba(227,43,43,.16), transparent 60%),
-    radial-gradient(760px 380px at 96% 0%, rgba(79,140,255,.10), transparent 55%),
+    radial-gradient(900px 420px at 12% -8%, rgba(238,42,38,.055), transparent 60%),
     var(--bg);
   color:var(--text);
   font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
@@ -56,13 +55,35 @@ a{color:var(--blue)}
 }
 .brand{display:flex;align-items:center;gap:12px;min-width:280px}
 .logo{
-  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
-  background:linear-gradient(145deg,#ff4949,#b81010);
-  box-shadow:0 8px 22px var(--red-glow);
-  font-weight:800;font-size:19px;letter-spacing:-.5px;
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  background:#ee2a26;
+  color:#ffffff;
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-1px;
+  box-shadow:none;
+  flex-shrink:0;
 }
-.brand h1{margin:0;font-size:17px;letter-spacing:.14em;font-weight:700}
-.brand p{margin:1px 0 0;color:var(--muted);font-size:11.5px;letter-spacing:.02em}
+
+.brand h1{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.15;
+  color:#161616;
+}
+.brand p{
+  margin:3px 0 0;
+  color:#737373;
+  font-size:11.5px;
+  font-weight:400;
+  letter-spacing:.01em;
+}
 .top-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
 .chip{
   display:inline-flex;align-items:center;gap:7px;
@@ -88,22 +109,27 @@ a{color:var(--blue)}
 .btn:active{transform:translateY(0)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .btn.primary{
-  background:linear-gradient(145deg,#f03b3b,#c21717);
-  border-color:#f25656;box-shadow:0 8px 22px rgba(227,43,43,.25);color:#fff;
+  background:#ee2a26;
+  border:1px solid #ee2a26;
+  color:#ffffff;
+  border-radius:8px;
+  box-shadow:none;
+  font-weight:700;
 }
-.btn.primary:hover{background:linear-gradient(145deg,#ff4a4a,#d21a1a)}
-.btn.ghost{background:transparent;border-color:var(--border)}
-.btn.ghost:hover{background:var(--panel)}
-.btn.small{padding:6px 10px;font-size:12px;border-radius:8px}
-.btn.danger{color:#ff9c9c;border-color:rgba(227,43,43,.4);background:var(--red-soft)}
-.btn.icon{padding:6px 9px;border-radius:8px;line-height:1}
-
+.btn.primary:hover{
+  background:#d92320;
+  border-color:#d92320;
+}
 /* ---------- cabecera fija ---------- */
 .head{
-  position:sticky;top:0;z-index:30;
-  background:rgba(10,13,19,.9);
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
+  border-top:4px solid #ee2a26;
+  border-bottom:1px solid #e5e5e5;
+  box-shadow:0 4px 20px rgba(22,22,22,.045);
 }
 /* ---------- tabs ---------- */
 .tabs{
@@ -116,10 +142,17 @@ a{color:var(--blue)}
   border-bottom:2px solid transparent;white-space:nowrap;
 }
 .tab:hover{color:var(--text)}
-.tab.active{color:#fff;border-bottom-color:var(--red)}
-.tab .count{
-  display:inline-block;margin-left:7px;padding:1px 7px;border-radius:999px;
-  background:var(--panel-2);border:1px solid var(--border);font-size:10.5px;color:var(--muted);
+
+.tab.active{
+  color:#ee2a26;
+  border-bottom:3px solid #ee2a26;
+  background:transparent;
+}
+
+.tab.active .count{
+  background:#fff0ef;
+  color:#c9211e;
+  border-color:#f5d0ce;
 }
 .tab.active .count{background:var(--red-soft);border-color:rgba(227,43,43,.4);color:#ffb3b3}
 
@@ -133,9 +166,11 @@ main{padding:24px 26px 60px;max-width:1500px;margin:0 auto}
 .section-head p{margin:4px 0 0;color:var(--muted);font-size:13px;max-width:760px}
 .section-head .spacer{flex:1}
 .panel{
-  background:linear-gradient(180deg,var(--panel),var(--bg-soft));
-  border:1px solid var(--border);border-radius:var(--radius);
-  box-shadow:var(--shadow);padding:18px;
+  background:#ffffff;
+  border:1px solid #e4e4e4;
+  border-radius:12px;
+  box-shadow:0 4px 18px rgba(22,22,22,.035);
+  padding:20px;
 }
 .panel + .panel{margin-top:16px}
 .panel-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
@@ -159,12 +194,21 @@ main{padding:24px 26px 60px;max-width:1500px;margin:0 auto}
 .dataset:hover{border-color:var(--border-strong)}
 .dataset.active{border-color:var(--red);background:var(--red-soft);box-shadow:inset 0 0 0 1px rgba(227,43,43,.25)}
 .dataset:disabled{opacity:.42;cursor:not-allowed}
+
 .input,select.input,textarea.input{
-  width:100%;background:#0d121a;border:1px solid var(--border-strong);border-radius:9px;
-  padding:9px 11px;outline:none;transition:border-color .12s,box-shadow .12s;
+  width:100%;
+  background:#ffffff;
+  color:#161616;
+  border:1px solid #d5d5d5;
+  border-radius:8px;
+  padding:9px 11px;
+  outline:none;
+  transition:border-color .15s,box-shadow .15s;
 }
+
 .input:focus,select.input:focus,textarea.input:focus{
-  border-color:#5b7ba6;box-shadow:0 0 0 3px rgba(79,140,255,.13);
+  border-color:#ee2a26;
+  box-shadow:0 0 0 3px rgba(238,42,38,.10);
 }
 .input::placeholder{color:var(--muted-2)}
 .run-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;color:var(--muted);font-size:12px}
@@ -176,29 +220,57 @@ main{padding:24px 26px 60px;max-width:1500px;margin:0 auto}
 @media (max-width:1100px){.metrics{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.metrics{grid-template-columns:1fr}}
 .metric{
-  position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--border);
-  border-radius:13px;padding:14px 15px 13px;
+  position:relative;
+  overflow:hidden;
+  background:#ffffff;
+  border:1px solid #e4e4e4;
+  border-radius:12px;
+  padding:18px;
 }
 .metric:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--blue);opacity:.7}
 .metric.good:before{background:var(--green)}
 .metric.warn:before{background:var(--amber)}
 .metric.bad:before{background:var(--red)}
 .metric .k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
-.metric .v{font-size:25px;font-weight:750;letter-spacing:-.02em;margin-top:5px;font-variant-numeric:tabular-nums}
+.metric .v{
+  color:#161616;
+  font-size:29px;
+  font-weight:800;
+  letter-spacing:-.035em;
+  margin-top:7px;
+  font-variant-numeric:tabular-nums;
+}
 .metric .s{color:var(--muted-2);font-size:11px;margin-top:2px}
 .metric .v small{font-size:13px;font-weight:600;color:var(--muted)}
 
 /* ---------- tables ---------- */
 .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:11px;max-height:430px}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
+
 th{
-  position:sticky;top:0;z-index:2;text-align:left;background:#111823;
-  color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;
-  padding:9px 11px;border-bottom:1px solid var(--border);white-space:nowrap;
+  position:sticky;
+  top:0;
+  z-index:2;
+  text-align:left;
+  background:#f7f7f7;
+  color:#626262;
+  font-size:11px;
+  font-weight:700;
+  padding:11px 13px;
+  border-bottom:1px solid #e5e5e5;
+  white-space:nowrap;
 }
-td{padding:8px 11px;border-bottom:1px solid rgba(36,46,61,.65);vertical-align:top}
-tr:last-child td{border-bottom:0}
-tbody tr:hover{background:rgba(79,140,255,.045)}
+
+td{
+  padding:11px 13px;
+  color:#161616;
+  border-bottom:1px solid #ededed;
+  vertical-align:top;
+}
+
+tbody tr:hover{
+  background:#fff5f4;
+}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 td.trunc{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.02em;border:1px solid transparent}
@@ -312,12 +384,15 @@ kbd{font-family:var(--mono);font-size:10.5px;padding:1px 5px;border:1px solid va
 
 <div class="head">
 <header class="topbar">
-  <div class="brand">
-    <div class="logo">N</div>
-    <div>
-      <h1>CLARO NEXUS</h1>
-      <p>Orquestador Next Best Action · Consola de configuración</p>
-    </div>
+  
+<div class="brand">
+  <div class="logo">C</div>
+
+  <div>
+    <h1>CLARO NEXUS</h1>
+    <p>Orquestador Next Best Action · Consola de configuración</p>
+  </div>
+</div>
   </div>
   <div class="top-actions">
     <span id="enginePill" class="chip"><span class="dot"></span><span>Conectando…</span></span>
